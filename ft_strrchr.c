@@ -1,39 +1,38 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 20:20:58 by milousinke        #+#    #+#             */
-/*   Updated: 2023/10/12 20:52:00 by milousinke       ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_strrchr.c									   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: msinke <msinke@student.42.fr>			  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2023/10/13 18:34:15 by msinke			#+#	#+#			 */
+/*   Updated: 2023/10/13 18:42:35 by msinke		   ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-char    *ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-    const char a = c;
-    int i;
+	size_t	i;
 
-    i = strlen((char *)str);
-    while (i >= 0)
-    {
-        if (c == str[i])
-            return(*str);
-        else if (str[i] == '0')
-            return(*str);
-    }
-    
-    return (NULL);
+	i = ft_strlen(str);
+	if (c == 0)
+		return ((char *)str + i);
+	while (i != SIZE_MAX)
+	{
+		if (c == str[i])
+			return ((char *)(str + i));
+		i--;
+	}
+	return (NULL);
 }
 
-int main(void)
-{
-    char    str[] = "HalloHallo";
-    char c = 'a';
-    ft_strrchr(str, c);
-    return (0);
-}
+// int	main(void)
+// {
+// 	const char s[] = "Tripuille";
+
+// 	printf("%s\n", ft_strchr(s, 't' + 256));
+// 	printf("original %s\n", strchr(s, 't' + 256));
+// 	return (0);
+// }
