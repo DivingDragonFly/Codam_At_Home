@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/05 18:00:36 by msinke            #+#    #+#             */
-/*   Updated: 2023/11/20 20:21:26 by msinke           ###   ########.fr       */
+/*   Created: 2023/10/05 17:38:03 by msinke            #+#    #+#             */
+/*   Updated: 2023/12/02 23:10:24 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../ft_printf.h"
 
-size_t	ft_strlen(const char *a)
+int	ft_isascii(int n)
 {
-	size_t	i;
-
-	i = 0;
-	if (!a)
-		return (i);
-	while (a[i] != '\0')
-		++i;
-	return (i);
+	return (n >= 0 && n <= 127);
 }

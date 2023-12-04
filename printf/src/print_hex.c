@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hexdec.c                                           :+:      :+:    :+:   */
+/*   print_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:02:06 by msinke            #+#    #+#             */
-/*   Updated: 2023/11/20 20:27:48 by msinke           ###   ########.fr       */
+/*   Updated: 2023/12/02 23:10:27 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	print_hex(uintptr_t value, bool upper)
+size_t	print_hex(size_t value, bool upper)
 {
 	char		c;
-	uintptr_t	num;
+	size_t		num;
+	size_t		count;
 
+	count = 0;
 	num = value;
 	if (num >= 16)
 	{
@@ -35,4 +37,6 @@ void	print_hex(uintptr_t value, bool upper)
 			c = (((num % 16) - 10) + 'a');
 	}
 	write(1, &c, 1);
+	count++;
+	return (count);
 }

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_char.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:54:27 by msinke            #+#    #+#             */
-/*   Updated: 2023/11/20 20:25:55 by msinke           ###   ########.fr       */
+/*   Created: 2023/11/28 18:51:05 by msinke            #+#    #+#             */
+/*   Updated: 2023/12/02 23:10:24 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_char(const int c)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s) * sizeof(char));
+	write(1, &c, sizeof(char));
+	return (1);
 }
