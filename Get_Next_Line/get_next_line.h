@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 18:43:48 by msinke            #+#    #+#             */
-/*   Updated: 2023/12/18 16:30:36 by msinke           ###   ########.fr       */
+/*   Created: 2024/01/20 19:18:57 by msinke            #+#    #+#             */
+/*   Updated: 2024/03/24 17:55:58 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,19 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-typedef struct s_struct
-{
-	char	*result;
-	char	*buffer;
-	char	*temp;
-	size_t	index;
-	int		buffer_size;
-}	t_struct;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-void	*ft_calloc(size_t num_elements, size_t element_size);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *buf, int c, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlen(const char *a);
-char	*ft_strjoin(char const *s1, char const *s2);
+size_t		ft_strlen(const char *a);
+void		*ft_memset(void *buf, int c, size_t n);
+char		*ft_strchr(const char *s, int c);
+char		*ft_strjoin(char *s1, char *s2);
+void		*ft_memmove(void *dest, const void *src, size_t n);
+void		*ft_calloc(size_t num_elements, size_t element_size);
+char		*eof(char *buffer);
+char		*extract_line(char *buffer);
+char		*read_fd(int fd, char *buffer);
+char		*get_next_line(int fd);
 
 #endif
