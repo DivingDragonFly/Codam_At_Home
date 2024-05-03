@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/04/30 21:31:37 by milousinke       ###   ########.fr       */
+/*   Updated: 2024/05/03 16:20:12 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,10 @@ sa (swap a): Swap the first 2 elements at the top of stack a.
 ss : sa and sb at the same time. Do you have to fork or is calling it twice sufficent?
 */
 
-void	ft_sa(t_node **stackA)
+void	ft_swap(t_node **stackA)
 {
 	t_node	*first;
 	t_node	*second;
-
-	if (*stackA != NULL && (*stackA)->next != NULL)
-	{
-		// swap a with b
-
-	}
 
 	if (*stackA != NULL && (*stackA)->next != NULL)
 	{
@@ -84,7 +78,7 @@ ra (rotate a): Sihft up all elements of stack a by 1.
 rr ; ra and rb at the same time (just call the function twice?)
 */
 
-void	ft_ra(t_node **stackA)
+void	ft_r(t_node **stackA)
 {
 	t_node *temp;
 	t_node	*last;
@@ -119,7 +113,7 @@ rra (reverse rotate a): Shift down all elements of stack a by 1.
 The last element becomes the first one
 */
 
-void	ft_rra(t_node **stackA)
+void	ft_rr(t_node **stackA)
 {
 	t_node	*temp;
 	t_node	*last;

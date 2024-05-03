@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+         #
+#    By: msinke <msinke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 14:48:50 by msinke            #+#    #+#              #
-#    Updated: 2024/05/02 17:12:22 by milousinke       ###   ########.fr        #
+#    Updated: 2024/05/03 17:49:40 by msinke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = /usr/local/opt/gcc/bin/gcc-13
+# CC = /usr/local/opt/gcc/bin/gcc-13
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # Path to libft
@@ -24,6 +25,7 @@ LIBFT_INC = -I libft
 SRC = src/linked_list.c \
 			src/main.c \
 			src/operations.c \
+			src/extra.c \
 			src/sort.c
 
 OBJ = $(SRC:.c=.o)

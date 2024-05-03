@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:29 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/02 17:16:17 by milousinke       ###   ########.fr       */
+/*   Updated: 2024/05/03 17:34:31 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,17 @@ typedef struct s_Node
 }	t_node;
 
 t_node	*new_node(t_node **head, int data);
-void 	printList(t_node *node);
+void	printList(t_node *node);
 void	ft_pb(t_node **stackA, t_node **stackB);
 void	ft_pa(t_node **stackA, t_node **stackB);
 void	ft_swap(t_node **stackA);
 void	ft_r(t_node **stackA);
 void	ft_rr(t_node **stackA);
 t_node	*first_pass(t_node *stackA);
-
+void	sort_a_b(t_node **stackA, t_node **stackB);
+void	sort_b_a(t_node **stackA, t_node **stackB);
+int		ascending_check(t_node **stackA);
+int		descending_check(t_node **stackB);
+void	sort(t_node **stackA, t_node **stackB);
 
 #endif
