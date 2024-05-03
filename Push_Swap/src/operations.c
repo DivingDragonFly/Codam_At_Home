@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/04/26 16:45:57 by msinke           ###   ########.fr       */
+/*   Updated: 2024/04/30 21:31:37 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ void	ft_sa(t_node **stackA)
 
 	if (*stackA != NULL && (*stackA)->next != NULL)
 	{
+		// swap a with b
+
+	}
+
+	if (*stackA != NULL && (*stackA)->next != NULL)
+	{
 		first = *stackA;
 		second = first->next;
 		first->next = second->next;
@@ -32,6 +38,8 @@ void	ft_sa(t_node **stackA)
 		*stackA = second;
 	}
 }
+// 			a -> b -> c -> d -> NULL
+// NULL < - a <- b <- c <- d
 
 
 /*

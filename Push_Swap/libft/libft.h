@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:28:23 by msinke            #+#    #+#             */
-/*   Updated: 2024/04/20 15:22:53 by msinke           ###   ########.fr       */
+/*   Updated: 2024/04/30 21:16:25 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <string.h>
 # include <ctype.h>
-# include <bsd/string.h>
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
