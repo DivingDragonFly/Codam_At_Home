@@ -6,7 +6,7 @@
 #    By: msinke <msinke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 14:48:50 by msinke            #+#    #+#              #
-#    Updated: 2024/05/03 17:49:40 by msinke           ###   ########.fr        #
+#    Updated: 2024/05/07 12:23:49 by msinke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC = src/linked_list.c \
 			src/main.c \
 			src/operations.c \
 			src/extra.c \
-			src/sort.c
+			src/self_made_sort.c \
+			src/quicksort.c
 
 OBJ = $(SRC:.c=.o)
 

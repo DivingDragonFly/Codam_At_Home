@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:31:13 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/03 17:49:13 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/07 12:55:15 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,9 @@ int	main(int argc, char *argv[])
 		i--;
 	}
 
-	printf("Before\n");
-	printList(stackA);
-	printList(stackB);
-	sort(&stackA, &stackB);
-	while (stackB != NULL)
-		ft_pa(&stackA, &stackB);
-	printf("After\n");
-	printList(stackA);
-	printList(stackB);
+	printf("Before sorting\n");
+    printListAndPrevious(stackA);
+	
 	 // Free the allocated memory for both stack
     while (stackA != NULL) {
         t_node *temp = stackA;

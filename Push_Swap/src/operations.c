@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/03 16:20:12 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/07 14:34:43 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ void	ft_swap(t_node **stackA)
 	if (*stackA != NULL && (*stackA)->next != NULL)
 	{
 		first = *stackA;
-		second = first->next;
-		first->next = second->next;
-		second->next = first;
+		second = first->next; // so accessing the value that first->next points to and making it second
+		first->next = second->next; //first->next is *stackA-> next (b), changing it to second->next (c)
+		second->next = first; //
+		first->previous = second; //pointer to NULL becomes first->next
+		if (first->next != NULL)
+			first->next->previous = first;
 		*stackA = second;
 	}
 }

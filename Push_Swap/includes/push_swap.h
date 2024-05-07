@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:29 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/03 17:34:31 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/07 12:37:39 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_Node
 
 t_node	*new_node(t_node **head, int data);
 void	printList(t_node *node);
+void	printListAndPrevious(t_node *head);
 void	ft_pb(t_node **stackA, t_node **stackB);
 void	ft_pa(t_node **stackA, t_node **stackB);
 void	ft_swap(t_node **stackA);
