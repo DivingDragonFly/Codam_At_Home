@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:31:13 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/07 12:55:15 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/08 17:14:33 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,25 @@ int	main(int argc, char *argv[])
 	// t_node	*tryout = NULL;
 	int		i;
 
-	i = argc - 1;
+	i = argc - 1;\
+	// fix erorr cases (double int input, no number error)
 	while (i > 0)
 	{
 		new_node(&stackA, ft_atoi(argv[i]));
 		i--;
 	}
 
-	printf("Before sorting\n");
+	printf("Before\n");
+	printf("stackA\n");
     printListAndPrevious(stackA);
-	
+	// printf("stackB\n");
+    // printListAndPrevious(stackB);
+	printf("After\n");
+	ft_reverse_rotate(&stackA);
+	printf("stackA\n");
+    printListAndPrevious(stackA);
+	// printf("stackB\n");
+    // printListAndPrevious(stackB);
 	 // Free the allocated memory for both stack
     while (stackA != NULL) {
         t_node *temp = stackA;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   self_made_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 09:45:20 by milousinke        #+#    #+#             */
-/*   Updated: 2024/05/03 18:02:25 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/08 16:48:21 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,11 @@ void	sort_a_b(t_node **stackA, t_node **stackB)
 		current = head->next;
 		if (head->data > current->data)
 			ft_swap(stackA);
-		ft_pb(stackA, stackB);
+		ft_push(stackB, stackA);
 	}
 
 }
+//if error when testing it prob be because i changed ft_pb to ft_push
 
 void	sort_b_a(t_node **stackA, t_node **stackB)
 {
@@ -76,7 +77,7 @@ void	sort_b_a(t_node **stackA, t_node **stackB)
 		current = head->next;
 		if (head->data < current->data)
 			ft_swap(stackB);
-		ft_pa(stackA, stackB);
+		ft_push(stackA, stackB);
 	}
 }
 
