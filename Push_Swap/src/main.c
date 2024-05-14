@@ -6,11 +6,22 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:31:13 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/08 17:14:33 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/14 16:50:50 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void print_stack(t_node *stack, const char *name)
+{
+    printf("%s: ", name);
+    while (stack != NULL)
+    {
+        printf("%d ", stack->data);
+        stack = stack->next;
+    }
+    printf("\n");
+}
 
 int	main(int argc, char *argv[])
 {
@@ -27,17 +38,15 @@ int	main(int argc, char *argv[])
 		i--;
 	}
 
-	printf("Before\n");
-	printf("stackA\n");
-    printListAndPrevious(stackA);
-	// printf("stackB\n");
-    // printListAndPrevious(stackB);
-	printf("After\n");
-	ft_reverse_rotate(&stackA);
-	printf("stackA\n");
-    printListAndPrevious(stackA);
-	// printf("stackB\n");
-    // printListAndPrevious(stackB);
+	printf("Before quicksort\n");
+    print_stack(stackA, "stackA");
+    print_stack(stackB, "stackB");
+
+    quicksort(&stackA, &stackB);
+
+    printf("After quicksort\n");
+    print_stack(stackA, "stackA");
+    print_stack(stackB, "stackB");
 	 // Free the allocated memory for both stack
     while (stackA != NULL) {
         t_node *temp = stackA;

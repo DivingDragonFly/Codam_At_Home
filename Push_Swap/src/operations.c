@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/08 17:15:00 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/14 13:53:13 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,41 @@ sa (swap a): Swap the first 2 elements at the top of stack a.
 ss : sa and sb at the same time. Do you have to fork or is calling it twice sufficent?
 */
 //swap first two elements
-void	ft_swap(t_node **stackA)
-{
-	t_node	*first;
-	t_node	*second;
 
-	first = *stackA; //*stackA is hier head van linked list
-	second = first->next; //pointer to struct, points to value of second element linked list
-	first->next = second->next; // the adress stored in first->next (adress second element)
-	// becomes the adress stored in second->next (adress of third element)
-	second->next = first; //makes Node B points to Node A
-	first->previous = second; //swap the pointer from 'NULL' to 'Node B'
-	if (first->next != NULL) 
-		first->next->previous = first; //update 'Node C' to previous point to 'Node A'
-	second->previous = NULL; //update pointer to NULL since it's head of list
-	*stackA = second; //update head of list to second node
+void	ft_swap_a(t_node **stackA)
+{
+	t_node	*nodeA;
+	t_node	*nodeB;
+
+	if (*stackA == NULL || (*stackA)->next == NULL)
+		return ;
+	nodeA = *stackA;
+	nodeB = (*stackA)->next;
+	if (nodeB->next != NULL)
+		nodeB->next->previous = nodeA;
+	nodeA->next = nodeB->next;
+	nodeB->next = nodeA;
+	nodeA->previous = nodeB;
+	nodeB->previous = NULL;
+	*stackA = nodeB;
+}
+
+void	ft_swap_b(t_node **stackB)
+{
+	t_node	*nodeA;
+	t_node	*nodeB;
+
+	if (*stackB == NULL || (*stackB)->next == NULL)
+		return ;
+	nodeA = *stackB;
+	nodeB = (*stackB)->next;
+	if (nodeB->next != NULL)
+		nodeB->next->previous = nodeA;
+	nodeA->next = nodeB->next;
+	nodeB->next = nodeA;
+	nodeA->previous = nodeB;
+	nodeB->previous = NULL;
+	*stackB = nodeB;
 }
 
 
@@ -42,45 +62,101 @@ pa (push a): take the first element at the top of b
 			do nothing if b is empty
 */
 
-void	ft_push(t_node **stackA, t_node **stackB)
+
+
+void	ft_push_a(t_node **source, t_node **dest)
 {
-	t_node	*nodeB;
+	t_node	*new_head;
 	t_node	*nodeA;
 
-	if (*stackB == NULL)
+	if (*source == NULL)
 		return ;
-	nodeB = *stackB;
-	nodeA = *stackA;
-	*stackB = (*stackB)->next;
-	if (nodeB->next != NULL)
-		nodeB->next->previous = NULL;
-	nodeB->next = nodeA;
+	new_head = *source;
+	nodeA = *dest;
+	*source = (*source)->next;
+	if (new_head->next != NULL)
+		new_head->next->previous = NULL;
+	new_head->next = nodeA;
 	if (nodeA != NULL)
-		nodeA->previous = nodeB;
-	*stackA = nodeB;
+		nodeA->previous = new_head;
+	*dest = new_head;
 }
+
+void	ft_push_b(t_node **source, t_node **dest)
+{
+	t_node	*new_head;
+	t_node	*nodeB;
+
+	if (*source == NULL)
+		return ;
+	new_head = *source;
+	nodeB = *dest;
+	*source = (*source)->next;
+	if (new_head->next != NULL)
+		new_head->next->previous = NULL;
+	new_head->next = nodeB;
+	if (nodeB != NULL)
+		nodeB->previous = new_head;
+	*dest = new_head;
+}
+
+// void	ft_push(t_node **stackA, t_node **stackB)
+// {
+// 	t_node	*nodeB;
+// 	t_node	*nodeA;
+
+// 	if (*stackB == NULL)
+// 		return ;
+// 	nodeB = *stackB;
+// 	nodeA = *stackA;
+// 	*stackB = (*stackB)->next;
+// 	if (nodeB->next != NULL)
+// 		nodeB->next->previous = NULL;
+// 	nodeB->next = nodeA;
+// 	if (nodeA != NULL)
+// 		nodeA->previous = nodeB;
+// 	*stackA = nodeB;
+// }
 
 /*
 ra (rotate a): Sihft up all elements of stack a by 1. 
 				The first element becomes the last one.
 */
 
-void	ft_rotate(t_node **stackA)
+void	rotate_a(t_node **stackA)
 {
-	t_node	*first;
 	t_node	*last;
-
+	t_node	*tail;
+	
 	if (*stackA == NULL || (*stackA)->next == NULL)
 		return ;
 	last = *stackA;
 	while (last->next != NULL)
 		last = last->next;
-	first = *stackA;
-	*stackA = first->next;
+	tail = *stackA;
+	*stackA = (*stackA)->next;
 	(*stackA)->previous = NULL;
-	last->next = first;
-	first->previous = last;
-	first->next = NULL;
+	last->next = tail;
+	tail->previous = last;
+	tail->next = NULL;
+}
+
+void	rotate_b(t_node **stackB)
+{
+	t_node	*last;
+	t_node	*tail;
+	
+	if (*stackB == NULL || (*stackB)->next == NULL)
+		return ;
+	last = *stackB;
+	while (last->next != NULL)
+		last = last->next;
+	tail = *stackB;
+	*stackB = (*stackB)->next;
+	(*stackB)->previous = NULL;
+	last->next = tail;
+	tail->previous = last;
+	tail->next = NULL;
 }
 
 /*
@@ -89,20 +165,38 @@ The last element becomes the first one
 */
 
 
-void	ft_reverse_rotate(t_node **stackA)
+void	reverse_rotate_a(t_node **stackA)
 {
+	t_node	*head;
 	t_node	*first;
-	t_node	*last;
 
 	if (*stackA == NULL || (*stackA)->next == NULL)
 		return ;
-	last = *stackA;
-	while (last->next != NULL)
-		last = last->next;
+	head = *stackA;
+	while (head->next != NULL)
+		head = head->next;
 	first = *stackA;
-	*stackA = last;
-	last->previous->next = NULL;
-	last->next = first;
-	first->previous = last;
-	last->previous = NULL;
+	*stackA = head;
+	head->previous->next = NULL;
+	head->next = first;
+	head->previous = NULL;
+	first->previous = head;
+}
+
+void	reverse_rotate_b(t_node	**stackB)
+{
+	t_node	*head;
+	t_node	*first;
+	
+	if (*stackB == NULL || (*stackB)->next == NULL)
+		return ;
+	head = *stackB;
+	while (head->next != NULL)
+		head = head->next;
+	first = *stackB;
+	*stackB = head;
+	head->previous->next = NULL;
+	head->next = first;
+	head->previous = NULL;
+	first->previous = head;
 }
