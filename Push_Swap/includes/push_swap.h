@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:29 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/14 16:51:17 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/22 18:07:50 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 typedef struct s_Node
 {
 	int				data;
+	bool			pivot;
 	struct s_Node	*next;
 	struct s_Node	*previous;
 }	t_node;
@@ -52,5 +53,7 @@ void	quicksort(t_node **stackA, t_node **stackB);
 void	first_pivot(t_node **stackA, t_node **stackB);
 void	second_pivot(t_node **stackA, t_node **stackB);
 void	print_stack(t_node *stack, const char *name);
+void	separate_a_b(t_node **stackA, t_node **stackB);
+t_node	*try_pivot(t_node **stackA, t_node **stackB, bool first_second);
 
 #endif

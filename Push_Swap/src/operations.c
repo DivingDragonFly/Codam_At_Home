@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/14 13:53:13 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/22 17:50:33 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_swap_a(t_node **stackA)
 	nodeA->previous = nodeB;
 	nodeB->previous = NULL;
 	*stackA = nodeB;
+	// printf("sa\n");
 }
 
 void	ft_swap_b(t_node **stackB)
@@ -53,6 +54,7 @@ void	ft_swap_b(t_node **stackB)
 	nodeA->previous = nodeB;
 	nodeB->previous = NULL;
 	*stackB = nodeB;
+	// printf("sb\n");
 }
 
 
@@ -80,6 +82,7 @@ void	ft_push_a(t_node **source, t_node **dest)
 	if (nodeA != NULL)
 		nodeA->previous = new_head;
 	*dest = new_head;
+	// printf("pa\n");
 }
 
 void	ft_push_b(t_node **source, t_node **dest)
@@ -98,6 +101,7 @@ void	ft_push_b(t_node **source, t_node **dest)
 	if (nodeB != NULL)
 		nodeB->previous = new_head;
 	*dest = new_head;
+	// printf("pb\n");
 }
 
 // void	ft_push(t_node **stackA, t_node **stackB)
@@ -139,6 +143,7 @@ void	rotate_a(t_node **stackA)
 	last->next = tail;
 	tail->previous = last;
 	tail->next = NULL;
+	// printf("ra\n");
 }
 
 void	rotate_b(t_node **stackB)
@@ -157,6 +162,7 @@ void	rotate_b(t_node **stackB)
 	last->next = tail;
 	tail->previous = last;
 	tail->next = NULL;
+	// printf("rb\n");
 }
 
 /*
@@ -181,6 +187,7 @@ void	reverse_rotate_a(t_node **stackA)
 	head->next = first;
 	head->previous = NULL;
 	first->previous = head;
+	// printf("rra\n");
 }
 
 void	reverse_rotate_b(t_node	**stackB)
@@ -199,4 +206,5 @@ void	reverse_rotate_b(t_node	**stackB)
 	head->next = first;
 	head->previous = NULL;
 	first->previous = head;
+	// printf("rrb\n");
 }
