@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/22 17:50:33 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/23 19:23:55 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ss : sa and sb at the same time. Do you have to fork or is calling it twice suff
 */
 //swap first two elements
 
-void	ft_swap_a(t_node **stackA)
+void	sa(t_node **stackA)
 {
 	t_node	*nodeA;
 	t_node	*nodeB;
@@ -35,10 +35,10 @@ void	ft_swap_a(t_node **stackA)
 	nodeA->previous = nodeB;
 	nodeB->previous = NULL;
 	*stackA = nodeB;
-	// printf("sa\n");
+	printf("sa\n");
 }
 
-void	ft_swap_b(t_node **stackB)
+void	sb(t_node **stackB)
 {
 	t_node	*nodeA;
 	t_node	*nodeB;
@@ -54,7 +54,7 @@ void	ft_swap_b(t_node **stackB)
 	nodeA->previous = nodeB;
 	nodeB->previous = NULL;
 	*stackB = nodeB;
-	// printf("sb\n");
+	printf("sb\n");
 }
 
 
@@ -66,7 +66,7 @@ pa (push a): take the first element at the top of b
 
 
 
-void	ft_push_a(t_node **source, t_node **dest)
+void	pa(t_node **source, t_node **dest)
 {
 	t_node	*new_head;
 	t_node	*nodeA;
@@ -82,10 +82,10 @@ void	ft_push_a(t_node **source, t_node **dest)
 	if (nodeA != NULL)
 		nodeA->previous = new_head;
 	*dest = new_head;
-	// printf("pa\n");
+	printf("pa\n");
 }
 
-void	ft_push_b(t_node **source, t_node **dest)
+void	pb(t_node **source, t_node **dest)
 {
 	t_node	*new_head;
 	t_node	*nodeB;
@@ -101,7 +101,7 @@ void	ft_push_b(t_node **source, t_node **dest)
 	if (nodeB != NULL)
 		nodeB->previous = new_head;
 	*dest = new_head;
-	// printf("pb\n");
+	printf("pb\n");
 }
 
 // void	ft_push(t_node **stackA, t_node **stackB)
@@ -127,7 +127,7 @@ ra (rotate a): Sihft up all elements of stack a by 1.
 				The first element becomes the last one.
 */
 
-void	rotate_a(t_node **stackA)
+void	ra(t_node **stackA)
 {
 	t_node	*last;
 	t_node	*tail;
@@ -143,10 +143,10 @@ void	rotate_a(t_node **stackA)
 	last->next = tail;
 	tail->previous = last;
 	tail->next = NULL;
-	// printf("ra\n");
+	printf("ra\n");
 }
 
-void	rotate_b(t_node **stackB)
+void	rb(t_node **stackB)
 {
 	t_node	*last;
 	t_node	*tail;
@@ -162,7 +162,7 @@ void	rotate_b(t_node **stackB)
 	last->next = tail;
 	tail->previous = last;
 	tail->next = NULL;
-	// printf("rb\n");
+	printf("rb\n");
 }
 
 /*
@@ -171,7 +171,7 @@ The last element becomes the first one
 */
 
 
-void	reverse_rotate_a(t_node **stackA)
+void	rra(t_node **stackA)
 {
 	t_node	*head;
 	t_node	*first;
@@ -187,10 +187,10 @@ void	reverse_rotate_a(t_node **stackA)
 	head->next = first;
 	head->previous = NULL;
 	first->previous = head;
-	// printf("rra\n");
+	printf("rra\n");
 }
 
-void	reverse_rotate_b(t_node	**stackB)
+void	rrb(t_node	**stackB)
 {
 	t_node	*head;
 	t_node	*first;
@@ -206,5 +206,5 @@ void	reverse_rotate_b(t_node	**stackB)
 	head->next = first;
 	head->previous = NULL;
 	first->previous = head;
-	// printf("rrb\n");
+	printf("rrb\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:24:00 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/22 18:24:22 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/23 19:49:01 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	first_pivot(t_node **stackA, t_node **stackB)
 		return ;
 	// still need to check pivot choice
 	// looping through pivots isn't logical yet
-	printf("while loop:\n");
+	// printf("while loop:\n");
 	while (*stackA != NULL)
 	{
-		pivot = try_pivot(stackA, stackB, true);
+		pivot = *stackA;
 		rotate_a(stackA);
 		current = *stackA;
 		while (current != pivot)
@@ -39,8 +39,8 @@ void	first_pivot(t_node **stackA, t_node **stackB)
 			current = next;
 		}
 		ft_push_a(stackA, stackB);
-		print_stack(*stackA, "first pivot stackA");
-    	print_stack(*stackB, "first pivot stackB");
+		// print_stack(*stackA, "first pivot stackA");
+    	// print_stack(*stackB, "first pivot stackB");
 	}
 	
 }
@@ -53,10 +53,10 @@ void	second_pivot(t_node **stackA, t_node **stackB)
 
 	if (*stackB == NULL || (*stackB)->next == NULL)
 		return ;
-	printf("while loop:\n");
+	// printf("while loop:\n");
 	while (*stackB != NULL)
 	{
-		pivot = try_pivot(stackA, stackB, false);
+		pivot = *stackB;
 		rotate_b(stackB);
 		current = *stackB;
 		while (current != pivot)
@@ -69,8 +69,8 @@ void	second_pivot(t_node **stackA, t_node **stackB)
 			current = next;
 		}
 		ft_push_b(stackB, stackA);
-		print_stack(*stackA, "second pivot stackA");
-    	print_stack(*stackB, "second pivot stackB");
+		// print_stack(*stackA, "second pivot stackA");
+    	// print_stack(*stackB, "second pivot stackB");
 	}
 	
 }
@@ -133,8 +133,8 @@ void	separate_a_b(t_node **stackA, t_node **stackB)
 		current = next;
 	}
 	ft_push_a(stackA, stackB);
-	print_stack(*stackA, "first pivot stackA");
-	print_stack(*stackB, "first pivot stackB");
+	// print_stack(*stackA, "first pivot stackA");
+	// print_stack(*stackB, "first pivot stackB");
 }
 
 // void	second_stack_a(t_node **stackA, t_node **stackB)
@@ -166,14 +166,14 @@ void	quicksort(t_node **stackA, t_node **stackB)
 	// second pivot, does opposite and goes from stackB to stackA
 	// second_pivot(stackA, stackB);
 
-	first_pivot(stackA, stackB);
-	second_pivot(stackA, stackB);
-	// while ((!ascending_check(stackA)) || (!(descending_check(stackB))) )
-	// {
-	// 	if (*stackA != NULL && (*stackA)->next != NULL)
-	// 		first_pivot(stackA, stackB);
+	// first_pivot(stackA, stackB);
+	// second_pivot(stackA, stackB);
+	while ((!ascending_check(stackA)) || (!(descending_check(stackB))) )
+	{
+		if (*stackA != NULL && (*stackA)->next != NULL)
+			first_pivot(stackA, stackB);
 		
-	// 	if (*stackB != NULL && (*stackB)->next != NULL)
-	// 		second_pivot(stackA, stackB);
-	// }
+		if (*stackB != NULL && (*stackB)->next != NULL)
+			second_pivot(stackA, stackB);
+	}
 }
