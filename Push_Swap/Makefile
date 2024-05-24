@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+         #
+#    By: msinke <msinke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 14:48:50 by msinke            #+#    #+#              #
-#    Updated: 2024/05/23 18:00:19 by milousinke       ###   ########.fr        #
+#    Updated: 2024/05/24 14:55:53 by msinke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC = src/linked_list.c \
 			src/extra.c \
 			src/self_made_sort.c \
 			src/quicksort.c \
-			src/pivot.c
+			src/pivot.c \
+			src/quicksort_stackA.c
 
 OBJ = $(SRC:.c=.o)
 

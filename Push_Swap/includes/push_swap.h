@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:29 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/23 19:23:12 by milousinke       ###   ########.fr       */
+/*   Updated: 2024/05/24 16:13:00 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int		ascending_check(t_node **stackA);
 int		descending_check(t_node **stackB);
 void	sort(t_node **stackA, t_node **stackB);
 void	quicksort(t_node **stackA, t_node **stackB);
+void    initial_partition(t_node **stackA, t_node **stackB);
+void	second_sorting(t_node **stackA, t_node **stackB);
+// void	recursive_sort(t_node **stacka, t_node **stackB, int count);
+void 	printStack(t_node **head);
 void	first_pivot(t_node **stackA, t_node **stackB);
 void	second_pivot(t_node **stackA, t_node **stackB);
 void	print_stack(t_node *stack, const char *name);

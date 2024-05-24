@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 09:45:20 by milousinke        #+#    #+#             */
-/*   Updated: 2024/05/14 13:51:16 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/24 14:53:49 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	sort_a_b(t_node **stackA, t_node **stackB)
 		head = *stackA;
 		current = head->next;
 		if (head->data > current->data)
-			ft_swap_a(stackA);
-		ft_push_b(stackA, stackB);
+			sa(stackA);
+		pb(stackA, stackB);
 	}
 
 }
@@ -76,8 +76,8 @@ void	sort_b_a(t_node **stackA, t_node **stackB)
 		head = *stackB;
 		current = head->next;
 		if (head->data < current->data)
-			ft_swap_b(stackB);
-		ft_push_b(stackB, stackA);
+			sb(stackB);
+		pa(stackB, stackA);
 	}
 }
 
