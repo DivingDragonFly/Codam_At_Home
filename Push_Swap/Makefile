@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msinke <msinke@student.42.fr>              +#+  +:+       +#+         #
+#    By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 14:48:50 by msinke            #+#    #+#              #
-#    Updated: 2024/05/24 14:55:53 by msinke           ###   ########.fr        #
+#    Updated: 2024/05/28 20:30:52 by milousinke       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-# CC = /usr/local/opt/gcc/bin/gcc-13
-CC = cc
+CC = /usr/local/opt/gcc/bin/gcc-13
+# CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # Path to libft

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:31:13 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/24 15:13:30 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/29 11:29:37 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int argc, char *argv[])
 	printf("StackB:\n");
 	printList(stackB);
     initial_partition(&stackA, &stackB);
+    // ascending_three_values(&stackA);
 	printf("After:\nStackA:\n");
 	printList(stackA);
 	printf("StackB:\n");

@@ -6,7 +6,7 @@
 /*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 17:28:36 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/23 19:23:55 by milousinke       ###   ########.fr       */
+/*   Updated: 2024/05/29 11:29:34 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	sa(t_node **stackA)
 	nodeA->previous = nodeB;
 	nodeB->previous = NULL;
 	*stackA = nodeB;
-	printf("sa\n");
+	// printf("sa\n")
 }
 
 void	sb(t_node **stackB)
@@ -54,7 +54,7 @@ void	sb(t_node **stackB)
 	nodeA->previous = nodeB;
 	nodeB->previous = NULL;
 	*stackB = nodeB;
-	printf("sb\n");
+	// printf("sb\n");
 }
 
 
@@ -82,7 +82,7 @@ void	pa(t_node **source, t_node **dest)
 	if (nodeA != NULL)
 		nodeA->previous = new_head;
 	*dest = new_head;
-	printf("pa\n");
+	// printf("pa\n");
 }
 
 void	pb(t_node **source, t_node **dest)
@@ -101,7 +101,7 @@ void	pb(t_node **source, t_node **dest)
 	if (nodeB != NULL)
 		nodeB->previous = new_head;
 	*dest = new_head;
-	printf("pb\n");
+	// printf("pb\n");
 }
 
 // void	ft_push(t_node **stackA, t_node **stackB)
@@ -143,7 +143,7 @@ void	ra(t_node **stackA)
 	last->next = tail;
 	tail->previous = last;
 	tail->next = NULL;
-	printf("ra\n");
+	// printf("ra\n");
 }
 
 void	rb(t_node **stackB)
@@ -162,7 +162,7 @@ void	rb(t_node **stackB)
 	last->next = tail;
 	tail->previous = last;
 	tail->next = NULL;
-	printf("rb\n");
+	// printf("rb\n");
 }
 
 /*
@@ -187,7 +187,7 @@ void	rra(t_node **stackA)
 	head->next = first;
 	head->previous = NULL;
 	first->previous = head;
-	printf("rra\n");
+	// printf("rra\n");
 }
 
 void	rrb(t_node	**stackB)
@@ -206,5 +206,5 @@ void	rrb(t_node	**stackB)
 	head->next = first;
 	head->previous = NULL;
 	first->previous = head;
-	printf("rrb\n");
+	// printf("rrb\n");
 }

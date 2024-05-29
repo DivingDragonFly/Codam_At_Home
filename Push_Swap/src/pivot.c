@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pivot.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:57:05 by milousinke        #+#    #+#             */
-/*   Updated: 2024/05/24 17:00:21 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/28 20:27:11 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_node  *ft_node_value(t_node *first, t_node *middle, t_node *last, int value)
         return (NULL);
 }
 
-t_node  *pivot_choice(t_node **stackA)
+t_node  *whole_stack_pivot_choice(t_node **stackA)
 {
     t_node  *middle;
     t_node  *first;
@@ -76,5 +76,35 @@ t_node  *pivot_choice(t_node **stackA)
     }
     median_value = find_median(first->data, middle->data, last->data);
 	pivot = ft_node_value(first, middle, last, median_value);
+    return (pivot);
+}
+
+t_node  *elements_pivot_choice(t_node **stackA, int count)
+{
+    t_node  *first;
+    t_node  *last;
+    t_node  *middle;
+    t_node  *pivot;
+    int     i;
+
+    if (!*stackA || !(*stackA)->next || !(*stackA)->next->next)
+        return (NULL);
+    first = *stackA;
+    middle = *stackA;
+    last = *stackA;
+    i = count;
+    while (i > 0)
+    {
+        last = last->next;
+        i--;
+    }
+    i = count/2;
+    while (i > 0)
+    {
+        middle = middle->next;
+        i--;
+    }
+    i = find_median(first->data, middle->data, last->data);
+    pivot = ft_node_value(first, middle, last, i);
     return (pivot);
 }

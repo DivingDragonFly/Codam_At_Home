@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:29 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/24 16:13:00 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/28 21:15:18 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	sort(t_node **stackA, t_node **stackB);
 void	quicksort(t_node **stackA, t_node **stackB);
 void    initial_partition(t_node **stackA, t_node **stackB);
 void	second_sorting(t_node **stackA, t_node **stackB);
+void    descending_sort_three_values(t_node **stackB);
+void    ascending_three_values(t_node **stackA);
 // void	recursive_sort(t_node **stacka, t_node **stackB, int count);
 void 	printStack(t_node **head);
 void	first_pivot(t_node **stackA, t_node **stackB);
@@ -61,7 +63,8 @@ void	print_stack(t_node *stack, const char *name);
 void	separate_a_b(t_node **stackA, t_node **stackB);
 int     find_median(int x, int y, int z);
 t_node  *ft_node_value(t_node *first, t_node *middle, t_node *last, int value);
-t_node  *pivot_choice(t_node **stackA);
+t_node  *whole_stack_pivot_choice(t_node **stackA);
+t_node  *elements_pivot_choice(t_node **stackA, int count);
 t_node	*try_pivot(t_node **stackA, t_node **stackB, bool first_second);
 
 #endif
