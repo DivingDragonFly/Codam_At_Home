@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
+/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:56:49 by msinke            #+#    #+#             */
-/*   Updated: 2024/04/20 15:39:47 by msinke           ###   ########.fr       */
+/*   Updated: 2024/05/29 21:33:43 by milousinke       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int	ft_atoi(const char *nptr)
 		num *= 10;
 		num = num + (nptr[i++] - '0');
 	}
+    // return error if not number
 	return (num * min);
 }
