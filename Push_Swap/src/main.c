@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 14:31:13 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/29 11:29:37 by milousinke       ###   ########.fr       */
+/*   Updated: 2024/06/04 16:26:47 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 // check arguments, whether they overflow, are actual numbers and dont have duplicates
 
 #include "../includes/push_swap.h"
+
+void	free_list(t_node **lst)
+{
+	t_node	*current;
+	t_node	*temp;
+	
+	current = *lst;
+	while (current != NULL)
+	{
+		temp = current;
+		current = (current)->next;
+		free(temp);
+	}
+    *lst = NULL;
+}
 
 void print_stack(t_node *stack, const char *name)
 {
@@ -45,6 +60,7 @@ int	main(int argc, char *argv[])
 		new_node(&stackA, ft_atoi(argv[i]));
 		i--;
 	}
+	index(&stackA);
 	// if (argc > 4)
     // {
     //     x = ft_atoi(argv[1]);
@@ -58,7 +74,6 @@ int	main(int argc, char *argv[])
 	printList(stackA);
 	printf("StackB:\n");
 	printList(stackB);
-    initial_partition(&stackA, &stackB);
     // ascending_three_values(&stackA);
 	printf("After:\nStackA:\n");
 	printList(stackA);
@@ -76,15 +91,7 @@ int	main(int argc, char *argv[])
     // print_stack(stackA, "stackA");
     // print_stack(stackB, "stackB");
 	 // Free the allocated memory for both stack
-    while (stackA != NULL) {
-        t_node *temp = stackA;
-        stackA = stackA->next;
-        free(temp);
-    }
-    while (stackB != NULL) {
-        t_node *temp = stackB;
-        stackB = stackB->next;
-        free(temp);
-    }
+    free_list(&stackA);
+    free_list(&stackB);
 	return (0);
 }
