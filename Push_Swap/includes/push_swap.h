@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: milousinke <milousinke@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:29 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/28 21:15:18 by milousinke       ###   ########.fr       */
+/*   Updated: 2024/06/04 16:06:38 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_Node
 t_node	*new_node(t_node **head, int data);
 void	printList(t_node *node);
 void	printListAndPrevious(t_node *head);
+void	free_list(t_node **lst);
 // operations
 void	sa(t_node **stackA);
 void	sb(t_node **stackB);
@@ -44,6 +45,15 @@ void	ra(t_node **stackA);
 void	rb(t_node **stackA);
 void	rra(t_node **stackA);
 void	rrb(t_node	**stackB);
+
+//indexed list
+t_node	*new_node_sorted_list(int data);
+void	sort_insertion(t_node **head, t_node *new_node);
+t_node	*sort_list(t_node *unsorted_lst);
+int		find_index(t_node *sorted_list, int value);
+void	index_list(t_node **stackA);
+
+
 t_node	*first_pass(t_node *stackA);
 void	sort_a_b(t_node **stackA, t_node **stackB);
 void	sort_b_a(t_node **stackA, t_node **stackB);

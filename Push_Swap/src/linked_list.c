@@ -6,7 +6,7 @@
 /*   By: msinke <msinke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:05:09 by msinke            #+#    #+#             */
-/*   Updated: 2024/05/22 17:55:09 by msinke           ###   ########.fr       */
+/*   Updated: 2024/06/04 14:57:19 by msinke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_node	*new_node(t_node **head, int data)
 	if (!tmp)
 		return (NULL);
 	tmp->data = data;
-	tmp->pivot = false;
 	tmp->next = *head; // the pointer of the new node is set to point to the current head of the list
 	// this inesrts the new node at the beginning of the list
 	tmp->previous = NULL; //As this will be the new head, its previous should be NULL

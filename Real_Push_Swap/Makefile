@@ -5,15 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: msinke <msinke@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/20 14:48:50 by msinke            #+#    #+#              #
-#    Updated: 2024/06/04 18:15:42 by msinke           ###   ########.fr        #
+#    Created: 2024/06/13 14:50:07 by msinke            #+#    #+#              #
+#    Updated: 2024/06/13 17:03:36 by msinke           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = /usr/local/opt/gcc/bin/gcc-13
-# CC = cc
+CC = cc 
 CFLAGS = -Wall -Wextra -Werror
 
 # Path to libft
@@ -22,15 +21,9 @@ LIBFT_DIR = libft
 LIBFT_INC = -I libft
 
 #source files
-SRC = src/linked_list.c \
+SRC = src/creation_list.c \
 			src/main.c \
-			src/operations.c \
-			src/extra.c \
-			src/self_made_sort.c \
-			src/quicksort.c \
-			src/pivot.c \
-			src/quicksort_stackA.c \
-			src/Index_List.c
+			src/parse_arguments.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -62,10 +55,3 @@ fclean: clean
 		make -C $(LIBFT_DIR) fclean
 
 re: fclean all
-
-
-
-
-
-#include directory for push_swap headers
-# INCLUDES = -I includes $(LIBFT_INC)
